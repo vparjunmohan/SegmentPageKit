@@ -1,6 +1,6 @@
 import UIKit
 
-class SPViewController: UIViewController {
+public class SPViewController: UIViewController {
     
     let segmentor: SPSegment
     private let viewControllers: [UIViewController]
@@ -16,7 +16,7 @@ class SPViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         setupSegmentor()
         setupPageViewController()
@@ -74,14 +74,14 @@ class SPViewController: UIViewController {
 
 // MARK: - UIPageViewControllerDataSource
 extension SPViewController: UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let currentIndex = viewControllers.firstIndex(of: viewController), currentIndex > 0 else {
             return nil
         }
         return viewControllers[currentIndex - 1]
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let currentIndex = viewControllers.firstIndex(of: viewController), currentIndex < (viewControllers.count - 1) else {
             return nil
         }
@@ -91,7 +91,7 @@ extension SPViewController: UIPageViewControllerDataSource {
 
 // MARK: - UIPageViewControllerDelegate
 extension SPViewController: UIPageViewControllerDelegate {
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    public func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed, let visibleViewController = pageViewController.viewControllers?.first, let index = viewControllers.firstIndex(of: visibleViewController) {
             segmentor.selectedSegmentIndex = index
         }
