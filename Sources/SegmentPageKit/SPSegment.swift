@@ -21,7 +21,7 @@ public class SPSegment: UIControl {
     private var _titleColorSelected: UIColor = .systemBlue
     private var _indicatorColor: UIColor = .clear
     
-    var segmentColorNormal: UIColor {
+    public var segmentColorNormal: UIColor {
         get { _segmentColorNormal }
         set {
             _segmentColorNormal = newValue
@@ -29,7 +29,7 @@ public class SPSegment: UIControl {
         }
     }
     
-    var segmentColorSelected: UIColor {
+    public var segmentColorSelected: UIColor {
         get { _segmentColorSelected }
         set {
             _segmentColorSelected = newValue
@@ -37,7 +37,7 @@ public class SPSegment: UIControl {
         }
     }
     
-    var titleColorNormal: UIColor {
+    public var titleColorNormal: UIColor {
         get { _titleColorNormal }
         set {
             _titleColorNormal = newValue
@@ -45,7 +45,7 @@ public class SPSegment: UIControl {
         }
     }
     
-    var titleColorSelected: UIColor {
+    public var titleColorSelected: UIColor {
         get { _titleColorSelected }
         set {
             _titleColorSelected = newValue
@@ -53,7 +53,7 @@ public class SPSegment: UIControl {
         }
     }
     
-    var selectedSegmentIndex = 0 {
+    public var selectedSegmentIndex = 0 {
         didSet {
             updateIndicatorPosition()
             updateButtonStates()
@@ -62,7 +62,7 @@ public class SPSegment: UIControl {
         }
     }
     
-    var indicatorColor: UIColor {
+    public var indicatorColor: UIColor {
         get { _indicatorColor }
         set {
             _indicatorColor = newValue
