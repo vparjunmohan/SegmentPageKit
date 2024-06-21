@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SPSegment: UIControl {
+public class SPSegment: UIControl {
     
     private let scrollView = UIScrollView()
     private let indicatorView: SPIndicatorView
@@ -85,7 +85,7 @@ class SPSegment: UIControl {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         scrollView.frame = bounds
         layoutButtons()

@@ -2,7 +2,7 @@ import UIKit
 
 public class SPViewController: UIViewController {
     
-    let segmentor: SPSegment
+    public let segmentor: SPSegment
     private let viewControllers: [UIViewController]
     private var pageViewController: UIPageViewController!
     
