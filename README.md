@@ -1,0 +1,3 @@
+# SegmentPageKit
+
+## Installation
