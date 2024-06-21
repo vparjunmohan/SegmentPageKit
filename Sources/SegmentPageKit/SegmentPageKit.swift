@@ -6,7 +6,7 @@ public class SPViewController: UIViewController {
     private let viewControllers: [UIViewController]
     private var pageViewController: UIPageViewController!
     
-    init(titles: [String], viewControllers: [UIViewController]) {
+    public init(titles: [String], viewControllers: [UIViewController]) {
         self.segmentor = SPSegment(frame: .zero, titles: titles)
         self.viewControllers = viewControllers
         super.init(nibName: nil, bundle: nil)
