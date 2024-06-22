@@ -50,7 +50,6 @@ class ViewController: UIViewController {
         segmentedVC.didMove(toParent: self)
     }
 }
-
 ```
 
 ## Customization
@@ -73,7 +72,6 @@ segmentedVC.segmentor.segmentColorSelected = .darkGray
 segmentedVC.segmentor.titleColorNormal = .white
 segmentedVC.segmentor.titleColorSelected = .black
 segmentedVC.segmentor.indicatorColor = .blue
-
 ```
 
 ## Contributing
