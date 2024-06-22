@@ -62,7 +62,7 @@ public class SPSegment: UIControl {
         }
     }
     
-    var segmentSpacing: CGFloat {
+    public var segmentSpacing: CGFloat {
         get { _segmentSpacing }
         set {
             _segmentSpacing = newValue
