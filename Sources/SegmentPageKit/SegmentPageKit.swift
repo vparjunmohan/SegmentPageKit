@@ -7,13 +7,6 @@ public class SPViewController: UIViewController {
     private var pageViewController: UIPageViewController!
     private var _segmentHeight: CGFloat
     
-    private var segmentHeight: CGFloat {
-        get { _segmentHeight }
-        set {
-            _segmentHeight = newValue
-        }
-    }
-    
     public init(titles: [String], viewControllers: [UIViewController], segmentHeight: CGFloat = 50) {
         self.segmentor = SPSegment(frame: .zero, titles: titles)
         self.viewControllers = viewControllers
@@ -39,7 +32,7 @@ public class SPViewController: UIViewController {
             segmentor.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             segmentor.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             segmentor.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            segmentor.heightAnchor.constraint(equalToConstant: 50) // Adjust as needed
+            segmentor.heightAnchor.constraint(equalToConstant: _segmentHeight)
         ])
         segmentor.addTarget(self, action: #selector(segmentChanged(_:)), for: .valueChanged)
     }
