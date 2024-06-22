@@ -15,7 +15,72 @@ To integrate SegmentPageKit into your project using Swift Package Manager:
 
 - File > Swift Packages > Add Package Dependency
 - Add https://github.com/vparjunmohan/SegmentPageKit.git
-- Select "Up to Next Major" with "1.0.0"
+
+## Usage
+
+Here is a basic example of how to set up SegmentPageKit in your view controller:
+
+```
+import SegmentPageKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let titles = ["Home", "Profile", "Settings"]
+        let homeVC = HomeViewController()
+        let profileVC = ProfileViewController()
+        let settingsVC = SettingnsViewController()
+        
+
+        let segmentedVC = SegmentorViewController(titles: titles, viewControllers: [homeVC, profileVC, settingsVC])
+
+        addChild(segmentedVC)
+        view.addSubview(segmentedVC.view)
+        segmentedVC.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            segmentedVC.view.topAnchor.constraint(equalTo: view.topAnchor),
+            segmentedVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            segmentedVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            segmentedVC.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+
+        segmentedVC.didMove(toParent: self)
+    }
+}
+
+```
+
+## Customization
+
+SegmentPageKit allows for extensive customization of the segmented control appearance and behavior:
+
+### Segmentor Properties
+
+- segmentColorNormal: The background color of the unselected segments.
+- segmentColorSelected: The background color of the selected segment.
+- titleColorNormal: The color of the unselected segment titles.
+- titleColorSelected: The color of the selected segment title.
+- indicatorColor: The color of the indicator.
+
+Example:
+
+```
+segmentedVC.segmentor.segmentColorNormal = .lightGray
+segmentedVC.segmentor.segmentColorSelected = .darkGray
+segmentedVC.segmentor.titleColorNormal = .white
+segmentedVC.segmentor.titleColorSelected = .black
+segmentedVC.segmentor.indicatorColor = .blue
+
+```
+
+## Contributing
+
+Contributions are welcome! If you have any suggestions or improvements, feel free to open an issue or submit a pull request.
+
 
 ## License
-MIT
+
+SegmentPageKit is available under the MIT license.
