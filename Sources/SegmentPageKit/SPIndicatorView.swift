@@ -9,8 +9,9 @@ import UIKit
 
 class SPIndicatorView: UIView {
     
-    init() {
+    init(indicatorColor: UIColor = .clear) {
         super.init(frame: .zero)
+        backgroundColor = indicatorColor
     }
     
     required init?(coder: NSCoder) {

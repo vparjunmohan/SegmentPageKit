@@ -81,13 +81,18 @@ public class SPSegment: UIControl {
     
     var currentSegmentIndex: Int?
     
-    init(frame: CGRect, titles: [String], indicatorColor: UIColor? = nil) {
+    init(frame: CGRect, titles: [String], indicatorColor: UIColor = .clear, selectedSegmentIndex: Int = 0, segmentColorNormal: UIColor = .clear, segmentColorSelected: UIColor = .clear, titleColorNormal: UIColor = .systemGray, titleColorSelected: UIColor = .systemBlue, segmentSpacing: CGFloat = .zero) {
         self.titles = titles
-        self.indicatorView = SPIndicatorView()
+        self.indicatorView = SPIndicatorView(indicatorColor: indicatorColor)
         super.init(frame: frame)
-        setupView()
-        selectedSegmentIndex = 0 // Ensure the first segment is selected by default
-        currentSegmentIndex = selectedSegmentIndex
+        self.selectedSegmentIndex = selectedSegmentIndex
+        self.currentSegmentIndex = selectedSegmentIndex
+        self.segmentColorNormal = segmentColorNormal
+        self.segmentColorSelected = segmentColorSelected
+        self.titleColorNormal = titleColorNormal
+        self.titleColorSelected = titleColorSelected
+        self.segmentSpacing = segmentSpacing
+        self.setupView()
     }
     
     required init?(coder: NSCoder) {
@@ -206,5 +211,3 @@ public class SPSegment: UIControl {
         scrollView.scrollRectToVisible(button.frame, animated: true)
     }
 }
-
-

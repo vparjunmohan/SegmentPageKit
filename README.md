@@ -69,10 +69,11 @@ Example:
 ```
 segmentedVC.segmentor.segmentColorNormal = .lightGray // default: UIColor.clear
 segmentedVC.segmentor.segmentColorSelected = .blue // default: UIColor.clear
-segmentedVC.segmentor.titleColorNormal = .black
-segmentedVC.segmentor.titleColorSelected = .blue
-segmentedVC.segmentor.indicatorColor = .red
+segmentedVC.segmentor.titleColorNormal = .black // default: UIColor.systemGray
+segmentedVC.segmentor.titleColorSelected = .blue // default: UIColor.systemBlue
+segmentedVC.segmentor.indicatorColor = .red // default: UIColor.clear
 segmentedVC.segmentor.segmentSpacing = 10 // default: CGFloat.zero
+segmentedVC.segmentor.selectedSegmentIndex = 0 // default: 0
 ```
 
 ## Contributing
