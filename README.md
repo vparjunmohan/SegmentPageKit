@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         let settingsVC = SettingnsViewController()
         
 
-        let segmentedVC = SegmentorViewController(titles: titles, viewControllers: [homeVC, profileVC, settingsVC])
+        let segmentedVC = SPViewController(titles: titles, viewControllers: [homeVC, profileVC, settingsVC])
 
         addChild(segmentedVC)
         view.addSubview(segmentedVC.view)

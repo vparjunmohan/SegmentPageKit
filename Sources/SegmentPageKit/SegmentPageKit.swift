@@ -5,10 +5,19 @@ public class SPViewController: UIViewController {
     public let segmentor: SPSegment
     private let viewControllers: [UIViewController]
     private var pageViewController: UIPageViewController!
+    private var _segmentHeight: CGFloat
     
-    public init(titles: [String], viewControllers: [UIViewController]) {
+    private var segmentHeight: CGFloat {
+        get { _segmentHeight }
+        set {
+            _segmentHeight = newValue
+        }
+    }
+    
+    public init(titles: [String], viewControllers: [UIViewController], segmentHeight: CGFloat = 50) {
         self.segmentor = SPSegment(frame: .zero, titles: titles)
         self.viewControllers = viewControllers
+        self._segmentHeight = segmentHeight
         super.init(nibName: nil, bundle: nil)
     }
     
