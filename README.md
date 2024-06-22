@@ -72,6 +72,7 @@ segmentedVC.segmentor.segmentColorSelected = .blue // default: UIColor.clear
 segmentedVC.segmentor.titleColorNormal = .black
 segmentedVC.segmentor.titleColorSelected = .blue
 segmentedVC.segmentor.indicatorColor = .red
+segmentedVC.segmentor.segmentSpacing = 10 // default: CGFloat.zero
 ```
 
 ## Contributing

@@ -20,6 +20,7 @@ public class SPSegment: UIControl {
     private var _titleColorNormal: UIColor = .systemGray
     private var _titleColorSelected: UIColor = .systemBlue
     private var _indicatorColor: UIColor = .clear
+    private var _segmentSpacing: CGFloat = CGFloat.zero
     
     public var segmentColorNormal: UIColor {
         get { _segmentColorNormal }
@@ -53,20 +54,28 @@ public class SPSegment: UIControl {
         }
     }
     
+    public var indicatorColor: UIColor {
+        get { _indicatorColor }
+        set {
+            _indicatorColor = newValue
+            updateIndicatorAppearance()
+        }
+    }
+    
+    var segmentSpacing: CGFloat {
+        get { _segmentSpacing }
+        set {
+            _segmentSpacing = newValue
+            updateSegmentStackAppearance()
+        }
+    }
+    
     public var selectedSegmentIndex = 0 {
         didSet {
             updateIndicatorPosition()
             updateButtonStates()
             scrollToButton(at: selectedSegmentIndex)
             updateButtonAppearance()
-        }
-    }
-    
-    public var indicatorColor: UIColor {
-        get { _indicatorColor }
-        set {
-            _indicatorColor = newValue
-            updateIndicatorAppearance()
         }
     }
     
@@ -100,7 +109,7 @@ public class SPSegment: UIControl {
         addSubview(scrollView)
         
         stackView.axis = .horizontal
-        stackView.spacing = 5
+        stackView.spacing = _segmentSpacing
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
         scrollView.addSubview(stackView)
@@ -179,6 +188,10 @@ public class SPSegment: UIControl {
     
     private func updateIndicatorAppearance() {
         indicatorView.backgroundColor = _indicatorColor
+    }
+    
+    private func updateSegmentStackAppearance() {
+        stackView.spacing = _segmentSpacing
     }
     
     @objc private func segmentButtonTapped(_ sender: SPButton) {
