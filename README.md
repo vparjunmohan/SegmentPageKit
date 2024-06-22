@@ -67,11 +67,11 @@ SegmentPageKit allows for extensive customization of the segmented control appea
 Example:
 
 ```
-segmentedVC.segmentor.segmentColorNormal = .lightGray
-segmentedVC.segmentor.segmentColorSelected = .darkGray
-segmentedVC.segmentor.titleColorNormal = .white
-segmentedVC.segmentor.titleColorSelected = .black
-segmentedVC.segmentor.indicatorColor = .blue
+segmentedVC.segmentor.segmentColorNormal = .lightGray // default: UIColor.clear
+segmentedVC.segmentor.segmentColorSelected = .blue // default: UIColor.clear
+segmentedVC.segmentor.titleColorNormal = .black
+segmentedVC.segmentor.titleColorSelected = .blue
+segmentedVC.segmentor.indicatorColor = .red
 ```
 
 ## Contributing
