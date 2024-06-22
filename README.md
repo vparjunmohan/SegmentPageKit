@@ -63,6 +63,8 @@ SegmentPageKit allows for extensive customization of the segmented control appea
 - titleColorNormal: The color of the unselected segment titles.
 - titleColorSelected: The color of the selected segment title.
 - indicatorColor: The color of the indicator.
+- segmentSpacing: The spacing between each segment.
+- selectedSegmentIndex: The index of segment which is selected by default.
 
 Example:
 
