@@ -21,6 +21,7 @@ public class SPSegment: UIControl {
     private var _titleColorSelected: UIColor = .systemBlue
     private var _indicatorColor: UIColor = .clear
     private var _segmentSpacing: CGFloat = CGFloat.zero
+    private var _segmentFont: UIFont? = UIFont.systemFont(ofSize: 14)
     
     public var segmentColorNormal: UIColor {
         get { _segmentColorNormal }
@@ -70,6 +71,14 @@ public class SPSegment: UIControl {
         }
     }
     
+    public var segmentFont: UIFont? {
+        get { _segmentFont }
+        set {
+            _segmentFont = newValue
+            updateButtonAppearance()
+        }
+    }
+    
     public var selectedSegmentIndex = 0 {
         didSet {
             updateIndicatorPosition()
@@ -81,7 +90,7 @@ public class SPSegment: UIControl {
     
     var currentSegmentIndex: Int?
     
-    init(frame: CGRect, titles: [String], indicatorColor: UIColor = .clear, selectedSegmentIndex: Int = 0, segmentColorNormal: UIColor = .clear, segmentColorSelected: UIColor = .clear, titleColorNormal: UIColor = .systemGray, titleColorSelected: UIColor = .systemBlue, segmentSpacing: CGFloat = .zero) {
+    init(frame: CGRect, titles: [String], indicatorColor: UIColor = .clear, selectedSegmentIndex: Int = 0, segmentColorNormal: UIColor = .clear, segmentColorSelected: UIColor = .clear, titleColorNormal: UIColor = .systemGray, titleColorSelected: UIColor = .systemBlue, segmentFont: UIFont? = UIFont.systemFont(ofSize: 14), segmentSpacing: CGFloat = .zero) {
         self.titles = titles
         self.indicatorView = SPIndicatorView(indicatorColor: indicatorColor)
         super.init(frame: frame)
@@ -91,6 +100,7 @@ public class SPSegment: UIControl {
         self.segmentColorSelected = segmentColorSelected
         self.titleColorNormal = titleColorNormal
         self.titleColorSelected = titleColorSelected
+        self.segmentFont = segmentFont
         self.segmentSpacing = segmentSpacing
         self.setupView()
     }
@@ -120,7 +130,7 @@ public class SPSegment: UIControl {
         scrollView.addSubview(stackView)
         
         titles.enumerated().forEach { index, title in
-            let button = SPButton(title: title, index: index)
+            let button = SPButton(title: title, index: index, font: self._segmentFont)
             button.addTarget(self, action: #selector(segmentButtonTapped(_:)), for: .touchUpInside)
             stackView.addArrangedSubview(button)
             buttons.append(button)
@@ -188,6 +198,7 @@ public class SPSegment: UIControl {
     private func updateButtonAppearance() {
         buttons.enumerated().forEach { index, button in
             button.backgroundColor = index == selectedSegmentIndex ? _segmentColorSelected : _segmentColorNormal
+            button.titleLabel?.font = _segmentFont
         }
     }
     
