@@ -65,6 +65,7 @@ SegmentPageKit allows for extensive customization of the segmented control appea
 - indicatorColor: The color of the indicator.
 - segmentSpacing: The spacing between each segment.
 - selectedSegmentIndex: The index of segment which is selected by default.
+- segmentFont: The font of segment titles.
 
 Example:
 
