@@ -92,7 +92,7 @@ public class SPSegment: UIControl {
     
     var currentSegmentIndex: Int?
     
-    init(frame: CGRect, titles: [String], indicatorColor: UIColor = .clear, selectedSegmentIndex: Int = 0, segmentColorNormal: UIColor = .clear, segmentColorSelected: UIColor = .clear, titleColorNormal: UIColor = .systemGray, titleColorSelected: UIColor = .systemBlue, segmentFont: UIFont? = UIFont.systemFont(ofSize: 14), segmentSpacing: CGFloat = .zero) {
+    public init(frame: CGRect, titles: [String], indicatorColor: UIColor = .clear, selectedSegmentIndex: Int = 0, segmentColorNormal: UIColor = .clear, segmentColorSelected: UIColor = .clear, titleColorNormal: UIColor = .systemGray, titleColorSelected: UIColor = .systemBlue, segmentFont: UIFont? = UIFont.systemFont(ofSize: 14), segmentSpacing: CGFloat = .zero) {
         self.titles = titles
         self.indicatorView = SPIndicatorView(indicatorColor: indicatorColor)
         super.init(frame: frame)
