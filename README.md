@@ -86,4 +86,4 @@ Contributions are welcome! If you have any suggestions or improvements, feel fre
 
 ## License
 
-SegmentPageKit is available under the MIT license.
+SegmentPageKit is available under the MIT license. See [LICENSE](https://github.com/vparjunmohan/SegmentPageKit/blob/d024dbcf79976d87295b4c9004816dd2adea6ccb/LICENSE) for details.
