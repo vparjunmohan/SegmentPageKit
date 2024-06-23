@@ -76,6 +76,7 @@ segmentedVC.segmentor.titleColorSelected = .blue // default: UIColor.systemBlue
 segmentedVC.segmentor.indicatorColor = .red // default: UIColor.clear
 segmentedVC.segmentor.segmentSpacing = 10 // default: CGFloat.zero
 segmentedVC.segmentor.selectedSegmentIndex = 0 // default: 0
+segmentedVC.segmentor.segmentFont = UIFont(name: "Poppins-Bold", size: 14) // default: UIFont.systemFont(ofSize: 14)
 ```
 
 ## Contributing

@@ -9,17 +9,17 @@ import UIKit
 
 class SPButton: UIButton {
     
-    init(title: String, index: Int) {
+    init(title: String, index: Int, font: UIFont?) {
         super.init(frame: .zero)
-        setupButton(title: title, index: index)
+        setupButton(title: title, index: index, font: font)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupButton(title: String, index: Int) {
-        self.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+    private func setupButton(title: String, index: Int, font: UIFont?) {
+        self.titleLabel?.font = font ?? UIFont.systemFont(ofSize: 14, weight: .regular)
         self.setTitle(title, for: .normal)
         self.tag = index
     }
