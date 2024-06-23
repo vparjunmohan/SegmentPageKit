@@ -83,6 +83,8 @@ segmentedVC.segmentor.segmentFont = UIFont(name: "Poppins-Bold", size: 14) // de
 
 Contributions are welcome! If you have any suggestions or improvements, feel free to open an issue or submit a pull request.
 
+As a rule of thumb, if you're proposing an API-breaking change or a change to existing functionality, consider proposing it by opening an issue, rather than a pull request; we'll use the issue as a public forum for discussing whether the proposal makes sense or not. See [CONTRIBUTING](https://github.com/vparjunmohan/SegmentPageKit/blob/70ff87b9d0a5f314108838f06df6f089b0a5ce26/CONTRIBUTING.md) for more details.
+
 
 ## License
 
