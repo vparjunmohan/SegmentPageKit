@@ -23,7 +23,7 @@ public class SPSegment: UIControl {
     private var _segmentSpacing: CGFloat = CGFloat.zero
     private var _segmentFont: UIFont? = UIFont.systemFont(ofSize: 14)
     
-    weak var delegate: SPSegmentDelegate?
+    public weak var delegate: SPSegmentDelegate?
     
     public var segmentColorNormal: UIColor {
         get { _segmentColorNormal }
