@@ -23,6 +23,8 @@ public class SPSegment: UIControl {
     private var _segmentSpacing: CGFloat = CGFloat.zero
     private var _segmentFont: UIFont? = UIFont.systemFont(ofSize: 14)
     
+    weak var delegate: SPSegmentDelegate?
+    
     public var segmentColorNormal: UIColor {
         get { _segmentColorNormal }
         set {
@@ -117,6 +119,9 @@ public class SPSegment: UIControl {
         updateButtonStates()
         updateButtonAppearance()
     }
+}
+
+private extension SPSegment {
     
     private func setupView() {
         scrollView.showsHorizontalScrollIndicator = false
@@ -213,6 +218,7 @@ public class SPSegment: UIControl {
     @objc private func segmentButtonTapped(_ sender: SPButton) {
         let index = sender.tag
         selectedSegmentIndex = index
+        delegate?.didTapSegment(index: index)
         sendActions(for: .valueChanged)
     }
     
