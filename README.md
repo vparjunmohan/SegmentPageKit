@@ -1,6 +1,9 @@
 # SegmentPageKit
 SegmentPageKit is a powerful and flexible UI component for iOS applications, combining a segmented control with a page view controller. It allows developers to create a seamless and interactive tabbed interface with ease.
 
+## Demo
+https://github.com/vparjunmohan/SegmentPageKit/assets/62532677/57ec5fa7-6408-456b-a7cc-8ee33ae3b4b5
+
 ## Features
 - Customizable segmented control with adjustable colors and titles
 - Smooth integration with `UIPageViewController` for easy page transitions
