@@ -24,6 +24,7 @@ To integrate SegmentPageKit into your project using Swift Package Manager:
 Here is a basic example of how to set up SegmentPageKit in your view controller:
 
 ```
+import UIKit
 import SegmentPageKit
 
 class ViewController: UIViewController {
@@ -51,6 +52,43 @@ class ViewController: UIViewController {
         ])
 
         segmentedVC.didMove(toParent: self)
+    }
+}
+```
+
+If segmented controllers are not required and if you want to use only the segmented tabs, the following initializer can be used:
+```
+import UIKit
+import SegmentPageKit
+
+class ViewController: UIViewController {
+    
+    private let segmentControl: SPSegment = {
+        let titles = ["Action", "Drama", "Horror", "Romance", "Sci-fi", "Thriller", "Fantasy", "Crime", "Anime"]
+        let control = SPSegment(frame: .zero, titles: titles)
+        control.translatesAutoresizingMaskIntoConstraints = false
+        return control
+    }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.addSubview(segmentControl)
+        segmentControl.delegate = self
+        
+        NSLayoutConstraint.activate([
+            segmentControl.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            segmentControl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            segmentControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            segmentControl.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
+}
+
+//MARK: - SPSEGMENT DELEGATE
+extension ViewController: SPSegmentDelegate {
+    func didTapSegment(index: Int) {
+        print("segment index \(index)")
     }
 }
 ```
