@@ -20,6 +20,8 @@ public class SPSegment: UIControl {
     private var _titleColorNormal: UIColor = .systemGray
     private var _titleColorSelected: UIColor = .systemBlue
     private var _indicatorColor: UIColor = .clear
+    private var _indicatorHeight: CGFloat = 2.0
+    private var _shouldHideIndicator: Bool = false
     private var _segmentSpacing: CGFloat = CGFloat.zero
     private var _segmentFont: UIFont? = UIFont.systemFont(ofSize: 14)
     
@@ -65,6 +67,20 @@ public class SPSegment: UIControl {
         }
     }
     
+    public var indicatorHeight: CGFloat {
+        get { _indicatorHeight }
+        set {
+            _indicatorHeight = newValue
+        }
+    }
+    
+    public var shouldHideIndicator: Bool {
+        get { _shouldHideIndicator }
+        set {
+            _shouldHideIndicator = newValue
+        }
+    }
+    
     public var segmentSpacing: CGFloat {
         get { _segmentSpacing }
         set {
@@ -92,10 +108,11 @@ public class SPSegment: UIControl {
     
     var currentSegmentIndex: Int?
     
-    public init(frame: CGRect, titles: [String], indicatorColor: UIColor = .clear, selectedSegmentIndex: Int = 0, segmentColorNormal: UIColor = .clear, segmentColorSelected: UIColor = .clear, titleColorNormal: UIColor = .systemGray, titleColorSelected: UIColor = .systemBlue, segmentFont: UIFont? = UIFont.systemFont(ofSize: 14), segmentSpacing: CGFloat = .zero) {
+    public init(frame: CGRect, titles: [String], indicatorColor: UIColor = .clear, indicatorHeight: CGFloat = 2.0, selectedSegmentIndex: Int = 0, segmentColorNormal: UIColor = .clear, segmentColorSelected: UIColor = .clear, titleColorNormal: UIColor = .systemGray, titleColorSelected: UIColor = .systemBlue, segmentFont: UIFont? = UIFont.systemFont(ofSize: 14), segmentSpacing: CGFloat = .zero) {
         self.titles = titles
         self.indicatorView = SPIndicatorView(indicatorColor: indicatorColor)
         super.init(frame: frame)
+        self.indicatorHeight = indicatorHeight
         self.selectedSegmentIndex = selectedSegmentIndex
         self.currentSegmentIndex = selectedSegmentIndex
         self.segmentColorNormal = segmentColorNormal
@@ -182,10 +199,11 @@ private extension SPSegment {
     private func updateIndicatorPosition(isInitialLayout: Bool = false) {
         guard !buttons.isEmpty, selectedSegmentIndex >= 0, selectedSegmentIndex < buttons.count else { return }
         let selectedButton = buttons[selectedSegmentIndex]
+        let indicatorHeight = _shouldHideIndicator == false ? _indicatorHeight : 0
         let indicatorFrame = CGRect(x: selectedButton.frame.origin.x,
-                                    y: scrollView.frame.height - 2,
+                                    y: scrollView.frame.height - indicatorHeight,
                                     width: selectedButton.frame.width,
-                                    height: 2)
+                                    height: indicatorHeight)
         
         let animations = {
             self.indicatorView.frame = indicatorFrame
