@@ -105,6 +105,7 @@ SegmentPageKit allows for extensive customization of the segmented control appea
 - titleColorSelected: The color of the selected segment title.
 - indicatorColor: The color of the indicator.
 - indicatorHeight: The height of the indicator.
+- shouldHideIndicator: Hide/show the segment indicator.
 - segmentSpacing: The spacing between each segment.
 - selectedSegmentIndex: The index of segment which is selected by default.
 - segmentFont: The font of segment titles.
@@ -118,6 +119,7 @@ segmentedVC.segmentor.titleColorNormal = .black // default: UIColor.systemGray
 segmentedVC.segmentor.titleColorSelected = .blue // default: UIColor.systemBlue
 segmentedVC.segmentor.indicatorColor = .red // default: UIColor.clear
 segmentedVC.segmentor.indicatorHeight = 5.0 // default: 2.0
+segmentedVC.segmentor.shouldHideIndicator = true // default: false
 segmentedVC.segmentor.segmentSpacing = 10 // default: CGFloat.zero
 segmentedVC.segmentor.selectedSegmentIndex = 0 // default: 0
 segmentedVC.segmentor.segmentFont = UIFont(name: "Poppins-Bold", size: 14) // default: UIFont.systemFont(ofSize: 14)
